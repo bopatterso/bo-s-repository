@@ -1,14 +1,21 @@
 # Lucid Dream Alarm iOS App
 
-A SwiftUI-based iOS app that helps induce lucid dreaming by detecting REM sleep periods and delivering subtle cues like vibrations and audio to wake consciousness in dreams without fully waking the user.
+A beautiful and user-friendly SwiftUI-based iOS app that helps induce lucid dreaming by detecting REM sleep periods and delivering subtle cues like vibrations and audio to wake consciousness in dreams without fully waking the user.
 
 ## Features
 
-- Sleep tracking using HealthKit
-- REM sleep estimation using accelerometer data as proxy
-- Customizable vibration patterns and audio cues
-- Dream journal
-- Reality check reminders
+- **Elegant UI**: Gradient backgrounds, SF Symbols icons, and smooth animations for an appealing experience.
+- **Sleep Tracking**: Uses HealthKit for sleep data and accelerometer for REM detection proxies.
+- **Customizable Cues**: Adjustable vibration intensity, audio volume, and REM interval settings.
+- **Dream Journal**: Record and review dreams with a polished interface.
+- **Status Indicators**: Visual feedback on tracking status.
+- **Privacy-Focused**: Minimal permissions required, data stored locally.
+
+## Screenshots (Conceptual)
+
+- **Home Screen**: Gradient background with moon icon, status indicator, and action buttons.
+- **Settings**: Organized sections with sliders and icons for easy customization.
+- **Journal**: Card-based layout for dream entries, with add sheet for new dreams.
 
 ## Setup Instructions
 
@@ -48,6 +55,14 @@ Based on research, subtle stimuli during estimated REM periods can induce lucidi
 - No direct EEG access on iOS; uses approximations
 - Requires physical device for sensor data
 - Background execution may be limited by iOS power management
+
+## Future Improvements
+
+- Integrate with Apple Watch for better sleep tracking
+- Add binaural beat audio files
+- Implement more advanced motion analysis for REM detection
+- Add reality check notifications during the day
+- Dark mode support and accessibility features
 
 ## Future Improvements
 
