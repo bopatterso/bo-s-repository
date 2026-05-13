@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Dream Journal | Lucid Dream Toolkit</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="app.js" defer></script>
+  </head>
+  <body data-page="journal">
+    <header class="site-header">
+      <nav class="nav" aria-label="Primary navigation">
+        <a class="brand" href="index.html">☾ Lucid Toolkit</a>
+        <div class="nav-links">
+          <a href="journal.html" aria-current="page">Dream Journal</a>
+          <a href="alarm.html">Alarms & Practice</a>
+          <a href="risks.html">Risks</a>
+        </div>
+      </nav>
+    </header>
+
+    <main class="page-grid">
+      <section class="card wide-card">
+        <p class="eyebrow">Local dream recall</p>
+        <h1>Dream journal</h1>
+        <p>Add dated dream notes, review recurring themes, and delete entries when you no longer need them. Entries are saved only in this browser using local storage.</p>
+
+        <form id="journal-form" class="form-grid">
+          <label>
+            Dream date
+            <input id="dream-date" type="date" required />
+          </label>
+          <label class="full-span">
+            Dream details
+            <textarea id="dream-text" rows="7" placeholder="Write the dream immediately after waking. Include places, people, emotions, odd details, and possible dream signs." required></textarea>
+          </label>
+          <button class="button primary" type="submit">Add journal entry</button>
+        </form>
+      </section>
+
+      <section class="card wide-card">
+        <div class="section-heading">
+          <h2>Saved entries</h2>
+          <span id="entry-count" class="pill">0 entries</span>
+        </div>
+        <div id="journal-list" class="entry-list" aria-live="polite"></div>
+      </section>
+    </main>
+  </body>
+</html>
