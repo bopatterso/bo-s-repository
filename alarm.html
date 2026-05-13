@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Alarms & Practice | Lucid Dream Toolkit</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="app.js" defer></script>
+  </head>
+  <body data-page="alarm">
+    <header class="site-header">
+      <nav class="nav" aria-label="Primary navigation">
+        <a class="brand" href="index.html">☾ Lucid Toolkit</a>
+        <div class="nav-links">
+          <a href="journal.html">Dream Journal</a>
+          <a href="alarm.html" aria-current="page">Alarms & Practice</a>
+          <a href="risks.html">Risks</a>
+        </div>
+      </nav>
+    </header>
+
+    <main class="page-grid">
+      <section class="card wide-card">
+        <p class="eyebrow">Night practice</p>
+        <h1>Alarm and reminder tools</h1>
+        <p>Set gentle reminders for wake-back-to-bed, rehearse MILD or SSILD, and train a saved sound cue for targeted lucidity reactivation. All settings are stored locally in your browser.</p>
+        <p class="note">Browser timers run best while this page stays open and the device is powered. For overnight use, test your device first.</p>
+      </section>
+
+      <section class="card" id="wbtb-card">
+        <h2>Wake Back to Bed timer</h2>
+        <p>Choose a bedtime and a wake-up delay of at least five hours. When the alarm fires, stay awake 30–120 minutes, practice MILD or SSILD, then return to sleep.</p>
+        <form id="wbtb-form" class="form-grid compact">
+          <label>
+            Bedtime
+            <input id="bedtime" type="time" required />
+          </label>
+          <label>
+            Wake after hours
+            <input id="wbtb-hours" type="number" min="5" max="10" step="0.25" value="5" required />
+          </label>
+          <button class="button primary" type="submit">Schedule WBTB</button>
+          <button class="button ghost" id="cancel-wbtb" type="button">Cancel</button>
+        </form>
+        <div id="wbtb-status" class="status-panel" aria-live="polite">No WBTB timer scheduled.</div>
+      </section>
+
+      <section class="card">
+        <h2>MILD practice</h2>
+        <p>Mnemonic Induction of Lucid Dreams pairs dream recall with an intention to notice the next dream.</p>
+        <form id="mild-form" class="form-grid compact">
+          <label class="full-span">
+            Recall your last dream
+            <textarea id="mild-dream" rows="4" placeholder="What were you seeing, feeling, or doing right before waking?"></textarea>
+          </label>
+          <label class="full-span">
+            Intention phrase
+            <input id="mild-phrase" value="Next time I’m dreaming, I will remember I’m dreaming" />
+          </label>
+          <button class="button secondary" type="submit">Start guided repetition</button>
+        </form>
+        <div id="mild-output" class="practice-panel">Write your dream memory, then repeat your phrase slowly while imagining becoming lucid in that dream.</div>
+      </section>
+
+      <section class="card">
+        <h2>SSILD audio-guided exercise</h2>
+        <p>Cycle attention through sight, hearing, and body sensations. Use this after a night waking while staying relaxed.</p>
+        <div class="button-row">
+          <button class="button primary" id="start-ssild" type="button">Start SSILD guide</button>
+          <button class="button ghost" id="stop-ssild" type="button">Stop</button>
+        </div>
+        <div id="ssild-step" class="focus-orb" aria-live="polite">Ready</div>
+        <p id="ssild-instructions" class="practice-panel">The guide speaks and chimes through vision, hearing, and body-focus cycles.</p>
+      </section>
+
+      <section class="card wide-card">
+        <h2>Targeted Lucidity Reactivation</h2>
+        <p>Pick a short beep or tone, train with it before sleep, then schedule soft intermittent playback roughly six hours after bedtime. Use a gradual volume ramp so the cue is noticeable without being disruptive.</p>
+
+        <div class="form-grid">
+          <label>
+            Cue sound
+            <select id="cue-select">
+              <option value="sine-528">Soft tone</option>
+              <option value="beep-pair">Two gentle beeps</option>
+              <option value="low-chime">Low chime</option>
+            </select>
+          </label>
+          <label>
+            Upload cue audio
+            <input id="cue-upload" type="file" accept="audio/*" />
+          </label>
+          <label>
+            Cue volume: <span id="volume-value">20%</span>
+            <input id="cue-volume" type="range" min="1" max="60" value="20" />
+          </label>
+          <label>
+            Delay before sleep cues: <span id="delay-value">6 hours</span>
+            <input id="cue-delay" type="range" min="5" max="8" step="0.25" value="6" />
+          </label>
+        </div>
+
+        <div class="button-row wrap">
+          <button class="button secondary" id="save-cue" type="button">Save cue settings</button>
+          <button class="button primary" id="start-training" type="button">Start 20 min training</button>
+          <button class="button ghost" id="stop-training" type="button">Stop training</button>
+          <button class="button secondary" id="schedule-tlr" type="button">Schedule sleep cues</button>
+          <button class="button ghost" id="test-cue" type="button">Test audible but gentle cue</button>
+          <button class="button ghost" id="cancel-tlr" type="button">Cancel cues</button>
+        </div>
+
+        <div id="tlr-status" class="status-panel" aria-live="polite">No TLR session scheduled.</div>
+        <div id="training-prompt" class="practice-panel">Training prompt: when the cue plays, adopt a lucid mindset — “This could be a dream. I will recognize dreaming.”</div>
+      </section>
+
+      <section class="card wide-card">
+        <h2>Optional reality-check reminders</h2>
+        <p>Enable daytime “Am I dreaming?” prompts. Evidence for reality checks by themselves is limited, so treat reminders as a lightweight habit rather than a guarantee.</p>
+        <label class="toggle-row">
+          <input id="reality-toggle" type="checkbox" />
+          <span>Show periodic reality-check prompts while this page is open</span>
+        </label>
+        <label>
+          Reminder interval: <span id="reality-interval-value">60 minutes</span>
+          <input id="reality-interval" type="range" min="15" max="180" step="15" value="60" />
+        </label>
+        <div id="reality-status" class="status-panel" aria-live="polite">Reality-check reminders are off.</div>
+      </section>
+    </main>
+
+    <div id="modal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <div class="modal-card">
+        <h2 id="modal-title">Reminder</h2>
+        <p id="modal-message"></p>
+        <button class="button primary" id="modal-close" type="button">Got it</button>
+      </div>
+    </div>
+  </body>
+</html>
